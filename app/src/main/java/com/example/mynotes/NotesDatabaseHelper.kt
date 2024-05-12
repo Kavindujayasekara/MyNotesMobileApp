@@ -5,8 +5,11 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
+
+// Database helper class for managing notes
 class NotesDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
+    // Companion object containing database constants
     companion object{
         private const val DATABASE_NAME = "notesapp.db"
         private const val DATABASE_VERSION = 1
@@ -16,18 +19,21 @@ class NotesDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         private const val COLUMN_CONTENT = "content"
     }
 
+    //
+    // Create table on database creation
     override fun onCreate(db: SQLiteDatabase?) {
         val createTableQuery = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_TITLE TEXT, $COLUMN_CONTENT TEXT)"
         db?.execSQL(createTableQuery)
     }
 
+    //Recreate table on database version upgrade
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
         val dropTableQuery = "DROP TABLE IF EXISTS $TABLE_NAME"
         db?.execSQL(dropTableQuery)
         onCreate(db)
     }
 
-   //insert data
+   //insert new data
    fun insertNote(note: Note){
         val db = writableDatabase
         val values = ContentValues().apply {

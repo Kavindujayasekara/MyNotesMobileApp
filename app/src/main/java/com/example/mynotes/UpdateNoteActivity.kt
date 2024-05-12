@@ -18,15 +18,18 @@ class UpdateNoteActivity : AppCompatActivity() {
 
         db = NotesDatabaseHelper(this)
 
+        //Retrieve the note ID from the intent
         noteId = intent.getIntExtra("note_id", -1)
         if (noteId== -1){
             finish()
             return
         }
+        //Retrieve the note details and populate the EditText fields
         val note = db.getNoteByID(noteId)
         binding.updateTitleEditText.setText(note.title)
         binding.updateContentEditText.setText(note.content)
 
+        //Set click listener for the save button to update the note
         binding.updateSaveButton.setOnClickListener {
             val newTitle = binding.updateTitleEditText.text.toString()
             val newContent = binding.updateContentEditText.text.toString()

@@ -10,7 +10,7 @@ class StartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
 
-        // Create an intent to start MainActivity
+        // Create intent for navigate to MainActivity
         val intentPage = findViewById<Button>(R.id.go_btn)
         intentPage.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

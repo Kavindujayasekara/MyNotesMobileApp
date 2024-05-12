@@ -8,6 +8,7 @@ import com.example.mynotes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    //View binding  and database helper instance
     private lateinit var binding: ActivityMainBinding
     private lateinit var db : NotesDatabaseHelper
     private lateinit var notesAdapter: NotesAdapter
@@ -18,8 +19,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         db = NotesDatabaseHelper(this)
+        //Initialize notes adapter with data from database
         notesAdapter = NotesAdapter(db.getAllNotes(), this)
 
+        //Set layout manager and adapter for the RecyclerView
         binding.notesRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.notesRecyclerView.adapter = notesAdapter
 

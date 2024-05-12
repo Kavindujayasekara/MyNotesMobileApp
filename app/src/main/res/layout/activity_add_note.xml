@@ -30,7 +30,7 @@
         android:id="@+id/titleEditText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:hint="Enter the title"
+        android:hint="Enter title"
         android:padding="12dp"
         android:textSize="20sp"
         android:layout_below="@id/addNoteTitle"
@@ -38,18 +38,19 @@
         android:layout_marginTop="16dp"
         android:maxLines="1"
         android:fontFamily="@font/poppins"/>
+
     <EditText
         android:id="@+id/contentEditText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="Enter the description"
-        android:gravity="top"
-        android:padding="12dp"
-        android:textSize="18dp"
-        android:fontFamily="@font/poppins"
-        android:background="@drawable/orange_border"
+        android:layout_width="380dp"
+        android:layout_height="200dp"
         android:layout_below="@id/titleEditText"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="12dp"
+        android:background="@drawable/orange_border"
+        android:fontFamily="@font/poppins"
+        android:gravity="top"
+        android:hint="Enter description"
+        android:padding="12dp"
+        android:textSize="18dp" />
 
 
 
